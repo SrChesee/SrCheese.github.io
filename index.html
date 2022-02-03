@@ -49,9 +49,9 @@
 <div class="row">
     <div class="col">
       <button id="btnNo" type="button" onClick="opcion('no')" class="btn btn-lg btn-danger">Opción no</button>
-    
+      <button id="initGame" type="button" onClick="init()" class="btn btn-lg btn-danger">Iniciar</button>    
     </div>
-    <div class="col-5">
+    <div class="col">
        <button id="btnSi" type="button" onClick="opcion('si')" class="btn btn-lg btn-success">Opción si</button>
         
         </div>
@@ -90,6 +90,7 @@ function setCard(card){
 }
 
 function init() {
+$("#initGame").toggle(false);
 // Seteo la carta inicial
 setCard(data.data.stitches[initialCard]);
 
@@ -164,6 +165,7 @@ try {
               $("#textCarta").text("Lograste sobrevivir al bosque");
               $("#btnSi").toggle();
               $("#btnNo").toggle();
+              $("#initGame").toggle();
           }
 }
 catch (e) {
