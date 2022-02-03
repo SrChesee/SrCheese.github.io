@@ -67,7 +67,8 @@
 <script src="data.js"></script>
 
     <script type="text/javascript">
-      $("#textCarta").text(data.data.stitches.teDespiertasEnUn.content[0]);
+      let initialCard = data.data.stitches.initial;
+      $("#textCarta").text(data.data.stitches[initialCard].content[0]);
       function opcion(tipo) {
           //alert(`El tipo elegido fue ${tipo}`);
           var nuevoDia = parseInt($("#dia").text().replace('Día ', '')) + 1;
