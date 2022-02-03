@@ -74,7 +74,9 @@
 
     <script type="text/javascript">
 (function() {
-  /*
+
+
+/*
 
 var flickerAPI = "https://www.inklewriter.com/stories/103939.json";
   $.getJSON(flickerAPI)
@@ -100,23 +102,31 @@ $.getJSON( flickerAPI, function() {
   });
 */
 
-  let initialCard = data.data.initial;
-  //alert(initialCard);
-  $("#textCarta").text(data.data.stitches[initialCard].content[0]);
-      
+let initialCard = data.data.initial;
+var dayCards = [];
+
+function init() {
+
+$("#textCarta").text(data.data.stitches[initialCard].content[0])
+       
+$.each(data.data.stitches, function( key, val ) {
+ // Solo agrego cartas que no sea la inicial y tengan acciónes   
+if(key !== initialCard && content.length > 1)
+{
+    dayCards.push(val);
+}
+});   
+
+}
+
+init ();
+
+  
+
+
+
+  
 })();
-
-/*var items = [];
-  $.each( data, function( key, val ) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-  });
- 
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "body" );*/
-
-
 
 
       function opcion(tipo) {
