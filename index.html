@@ -67,6 +67,23 @@
 <script src="data.js"></script>
 
     <script type="text/javascript">
+$.getJSON( "https://www.inklewriter.com/stories/103939.json", function( data ) {
+  alert(data.title);
+
+/*var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );*/
+});
+
+
+
+
       let initialCard = data.data.initial;
       //alert(initialCard);
       $("#textCarta").text(data.data.stitches[initialCard].content[0]);
