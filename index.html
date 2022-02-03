@@ -67,8 +67,19 @@
 <script src="data.js"></script>
 
     <script type="text/javascript">
-$.getJSON( "https://www.inklewriter.com/stories/103939.json", function( data ) {
-  alert(data.title);
+(function() {
+  var flickerAPI = "https://www.inklewriter.com/stories/103939.json";
+  $.getJSON(flickerAPI)
+    .done(function( data ) {
+      alert(data.title);
+    });
+
+
+  let initialCard = data.data.initial;
+  //alert(initialCard);
+  $("#textCarta").text(data.data.stitches[initialCard].content[0]);
+      
+})();
 
 /*var items = [];
   $.each( data, function( key, val ) {
@@ -79,14 +90,10 @@ $.getJSON( "https://www.inklewriter.com/stories/103939.json", function( data ) {
     "class": "my-new-list",
     html: items.join( "" )
   }).appendTo( "body" );*/
-});
 
 
 
 
-      let initialCard = data.data.initial;
-      //alert(initialCard);
-      $("#textCarta").text(data.data.stitches[initialCard].content[0]);
       function opcion(tipo) {
           //alert(`El tipo elegido fue ${tipo}`);
           var nuevoDia = parseInt($("#dia").text().replace('Día ', '')) + 1;
