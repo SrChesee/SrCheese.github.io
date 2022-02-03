@@ -60,7 +60,7 @@
 
 <div class="row">
     <div class="col text-center">
-       Versión 0.6
+       Versión 0.7
     </div>
 </div>
 
@@ -89,9 +89,9 @@ setCard(data.data.stitches[initialCard]);
        
 $.each(data.data.stitches, function( key, val ) {
  // Solo agrego cartas que no sea la inicial y tengan acciónes   
-if(key !== initialCard && content.length > 1)
+if(key !== initialCard && val.content.length > 1)
 {
-    alert(val[0]);
+    
     dayCards.push(val);
 }
 });   
