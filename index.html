@@ -149,8 +149,13 @@ try {
           $("#dia").text(`Día ${nuevoDia}`);
           //alert(data.data.stitches.teDespiertasEnUn.content[0])
           let newCard = dayCards.pop();
-          
-          setCard(newCard);
+          if (newCard){
+              setCard(newCard);
+          }else{
+              $("#textCarta").text("Lograste sobrevivir al bosque");
+              $("#btnSi").toggle();
+              $("#btnNo").toggle();
+          }
 }
 catch (e) {
    // sentencias para manejar cualquier excepción
