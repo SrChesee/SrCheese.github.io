@@ -60,7 +60,7 @@
 
 <div class="row">
     <div class="col text-center">
-       Versión 0.1
+       Versión 0.2
     </div>
 </div>
 
@@ -83,6 +83,19 @@ $( "<ul/>", {
   }).appendTo( "body" );
      // alert(data.title);
     });
+
+$.getJSON( flickerAPI, function() {
+  alert( "success" );
+})
+  .done(function() {
+    alert( "second success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "complete" );
+  });
 
 
   let initialCard = data.data.initial;
