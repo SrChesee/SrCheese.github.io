@@ -60,7 +60,7 @@
 
 <div class="row">
     <div class="col text-center">
-       Versión 0.4
+       Versión 0.5
     </div>
 </div>
 
@@ -138,13 +138,20 @@ init ();
 
 
       function opcion(tipo) {
-          //alert(`El tipo elegido fue ${tipo}`);
+try {
+   //alert(`El tipo elegido fue ${tipo}`);
           let nuevoDia = parseInt($("#dia").text().replace('Día ', '')) + 1;
           $("#dia").text(`Día ${nuevoDia}`);
           //alert(data.data.stitches.teDespiertasEnUn.content[0])
           let newCard = dayCards.pop();
           alert(newCard[0]);
           setCard(newCard);
+}
+catch (e) {
+   // sentencias para manejar cualquier excepción
+   alert(e);
+}
+          
        }
     </script>
 
