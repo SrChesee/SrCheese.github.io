@@ -48,11 +48,11 @@
   </div>
 <div class="row">
     <div class="col">
-      <button type="button" onClick="opcion('no')" class="btn btn-lg btn-danger">Opción no</button>
+      <button id="btnNo" type="button" onClick="opcion('no')" class="btn btn-lg btn-danger">Opción no</button>
     
     </div>
     <div class="col-5">
-       <button type="button" onClick="opcion('si')" class="btn btn-lg btn-success">Opción si</button>
+       <button id="btnSi" type="button" onClick="opcion('si')" class="btn btn-lg btn-success">Opción si</button>
         
         </div>
   </div>
@@ -106,9 +106,16 @@ $.getJSON( flickerAPI, function() {
 let initialCard = data.data.initial;
 var dayCards = [];
 
+function setCard(card){
+      $("#textCarta").text(card.content[0]);
+      $("#btnSi").text(card.content[1].option);
+      $("#btnNo").text(card.content[2].option);
+}
+
 function init() {
 
-$("#textCarta").text(data.data.stitches[initialCard].content[0])
+setCard(data.data.stitches[initialCard]);
+
        
 $.each(data.data.stitches, function( key, val ) {
  // Solo agrego cartas que no sea la inicial y tengan acciónes   
@@ -135,6 +142,7 @@ init ();
           var nuevoDia = parseInt($("#dia").text().replace('Día ', '')) + 1;
           $("#dia").text(`Día ${nuevoDia}`);
           //alert(data.data.stitches.teDespiertasEnUn.content[0])
+          setCard(dayCards.pop());
        }
     </script>
 
