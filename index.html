@@ -77,7 +77,11 @@
   var flickerAPI = "https://www.inklewriter.com/stories/103939.json";
   $.getJSON(flickerAPI)
     .done(function( data ) {
-      alert(data.title);
+$( "<ul/>", {
+    "class": "my-new-list",
+    html: "Hola termino de cargar"
+  }).appendTo( "body" );
+     // alert(data.title);
     });
 
 
