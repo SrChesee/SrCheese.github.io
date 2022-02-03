@@ -60,7 +60,7 @@
 
 <div class="row">
     <div class="col text-center">
-       Versión 0.5
+       Versión 0.6
     </div>
 </div>
 
@@ -73,6 +73,31 @@
 <script src="data.js"></script>
 
     <script type="text/javascript">
+let initialCard = data.data.initial;
+var dayCards = [];
+
+function setCard(card){
+      $("#textCarta").text(card.content[0]);
+      $("#btnSi").text(card.content[1].option);
+      $("#btnNo").text(card.content[2].option);
+}
+
+function init() {
+
+setCard(data.data.stitches[initialCard]);
+
+       
+$.each(data.data.stitches, function( key, val ) {
+ // Solo agrego cartas que no sea la inicial y tengan acciónes   
+if(key !== initialCard && content.length > 1)
+{
+    dayCards.push(val);
+}
+});   
+
+}
+
+
 (function() {
 
 
@@ -103,29 +128,8 @@ $.getJSON( flickerAPI, function() {
   });
 */
 
-let initialCard = data.data.initial;
-var dayCards = [];
 
-function setCard(card){
-      $("#textCarta").text(card.content[0]);
-      $("#btnSi").text(card.content[1].option);
-      $("#btnNo").text(card.content[2].option);
-}
 
-function init() {
-
-setCard(data.data.stitches[initialCard]);
-
-       
-$.each(data.data.stitches, function( key, val ) {
- // Solo agrego cartas que no sea la inicial y tengan acciónes   
-if(key !== initialCard && content.length > 1)
-{
-    dayCards.push(val);
-}
-});   
-
-}
 
 init ();
 
