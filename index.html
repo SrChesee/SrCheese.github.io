@@ -76,6 +76,13 @@
 let initialCard = data.data.initial;
 var dayCards = [];
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 function setCard(card){
       $("#textCarta").text(card.content[0]);
       $("#btnSi").text(card.content[1].option);
@@ -83,7 +90,7 @@ function setCard(card){
 }
 
 function init() {
-
+// Seteo la carta inicial
 setCard(data.data.stitches[initialCard]);
 
        
@@ -94,7 +101,9 @@ if(key !== initialCard && val.content.length > 2)
     
     dayCards.push(val);
 }
-});   
+});
+
+shuffleArray(dayCards);
 
 }
 
