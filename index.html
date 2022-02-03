@@ -32,18 +32,18 @@
   </div>
   <div class="row">
     <div class="col text-center">
-      12
+      100
     </div>
     <div class="col text-center">
-      42
+      100
     </div>
     <div class="col text-center">
-      52
+      100
     </div>
   </div>
 <div class="row">
-    <div class="col-12 text-center border border-dark">
-      Texto de ejemplo
+    <div id="textCarta" class="col-12 text-center border border-dark">
+      
     </div>
   </div>
 <div class="row">
@@ -67,11 +67,12 @@
 <script src="data.js"></script>
 
     <script type="text/javascript">
+      $("#dia").text(data.data.stitches.teDespiertasEnUn.content[0]);
       function opcion(tipo) {
           //alert(`El tipo elegido fue ${tipo}`);
           var nuevoDia = parseInt($("#dia").text().replace('Día ', '')) + 1;
           $("#dia").text(`Día ${nuevoDia}`);
-          alert(data.data.stitches.teDespiertasEnUn.content[0])
+          //alert(data.data.stitches.teDespiertasEnUn.content[0])
        }
     </script>
 
